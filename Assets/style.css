@@ -26,11 +26,8 @@ p {
     padding-right: 10px;
     padding-left: 10px;
     flex-direction: column;
-    text-align: center;
-}
-
-main {
-
+    text-align: left;
+    font-size: medium;
 }
 
 .page-wrapper {
@@ -40,10 +37,6 @@ main {
     padding-right: 10px;
     padding-left: 10px;
     flex-direction: column;
-}
-
-section {
-
 }
 
 .Question-1-choices, .Question-2-choices, .Question-3-choices, .Question-4-choices, .Question-5-choices {
@@ -56,4 +49,15 @@ ol {
     margin-left: auto;
     flex-direction: column;
     text-align: left;
+}
+
+button {
+    background: steelblue;
+    color: white;
+    font-size: medium;
+    border-style: double;
+    border-color: lightgray;
+    margin-inline: 5px;
+    margin-bottom: 5px;
+
 }
