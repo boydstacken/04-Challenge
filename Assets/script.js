@@ -13,6 +13,9 @@ var answer4 = ["commas", "curly brackets", "quotes", "paranthesis"]
 var answer5 = ["JavaScript", "terminal/bash", "for loops"]
 var correctanswer = ["booleans", "paranthesis", "all of the above", "curly brackets", "for loops"]
 var choiceEl = document.querySelectorAll('.Ordered-list-button-1');
+var timer;
+var ele = document.getElementById('timer')
+
 
 
 // let questions  = [
@@ -105,6 +108,17 @@ function handleQuestion() {
         item.addEventListener('click', clickEvent)
     });
 }
+
+var timeleft = 75;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("timer").innerHTML = "Finished";
+  } else {
+    document.getElementById("timer").innerHTML = timeleft + " seconds remaining";
+  }
+  timeleft -= 1;
+}, 1000);
 
 
 

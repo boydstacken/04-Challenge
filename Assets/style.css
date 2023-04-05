@@ -18,6 +18,12 @@ header {
     padding-top: 150px;
 }
 
+.timeclock {
+    text-align: right;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin:0;
+}
 
 p {
     margin-right: auto;
