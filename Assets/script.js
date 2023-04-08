@@ -15,6 +15,7 @@ var correctanswer = ["booleans", "paranthesis", "all of the above", "curly brack
 var choiceEl = document.querySelectorAll('.Ordered-list-button-1');
 var timer;
 var ele = document.getElementById('timer')
+var count = 75
 
 
 
@@ -84,8 +85,12 @@ clickEvent = (event) => {
     }
     else {
         // tbd , penalise by docking 10 seconds off of timer
-        alert(" Oops, that  is not  right");
-    }
+        (correctanswer[currentIndex] !== btn.textContent) 
+            alert(" Oops, that  is not  right, you lose 10 seconds");
+            clearInterval(downloadTimer);
+            timer.innerHTML = -10
+            timer = setInterval(myClock, 1000);
+        }
 
     currentIndex++;
     if (currentIndex === correctanswer.length) {
