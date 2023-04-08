@@ -15,42 +15,22 @@ var correctanswer = ["booleans", "paranthesis", "all of the above", "curly brack
 var choiceEl = document.querySelectorAll('.Ordered-list-button-1');
 var timer;
 var ele = document.getElementById('timer')
-var count = 75
+var score = 0;
 
-
-
-// let questions  = [
-//     {
-//         question:  "questions1",
-//         ansChoices: ["a1", "a2", "a3",  "a4"],
-//         corrAns: "a3",
-//     },
-//     {
-//         question:  "questions1",
-//         ansChoices: ["a1", "a2", "a3",  "a4"],
-//         corrAns: "a3",
-//     },
-// ]
-
-// let questions = [question1, question2, question3, question4, question5];
-// let answers = [answer1, answer2, answer3, answer4, ]
-// let currentIndex =0;
-// let currentQuestion= questions[currentIndex];
 
 let currentQuestion = question1;
 let currentIndex = 0;
 
-
+//Iniitalizing the start of quiz with event after user clicks first button
 startbutton.addEventListener("click", startgame)
 
-
-
+//Once user starts quiz the countdown time starts to decrease and questions, answers show and dissapear as the user starts making their way through the quiz
+var timeleft = 75;
 function startgame() {
     startbutton.classList.add("hide")
     question1.parentNode.classList.remove("hide")
     question1.parentNode.classList.add("show")
     handleQuestion();
-    var timeleft = 75;
 var downloadTimer = setInterval(function(){
         setTimeout(downloadTimer,1000);  
       if(timeleft <= 0){
@@ -64,18 +44,12 @@ var downloadTimer = setInterval(function(){
         handleQuestion();
 }
 
-
-//setTimeout(() => {   
-    //startbutton.addEventListener("click", startgame)
-    //console.log("this is the first message");
-     // }, 5000);
-
-
-
+// when user completes quiz
 function endquiz() {
-    // to be completed
+
 }
 
+//events when user clicks button and alerts saying if their answer is right or wrong. Time is deducted by -10 seconds if they select the wrong answer
 clickEvent = (event) => {
     console.log('some event content here...')
     let btn = event.target;
@@ -84,26 +58,20 @@ clickEvent = (event) => {
         alert("Great! You answered right");
     }
     else {
-        // tbd , penalise by docking 10 seconds off of timer
+        // Penalizes user for wrong ansewr, docs 10 seconds off of timer
         (correctanswer[currentIndex] !== btn.textContent) 
             alert(" Oops, that  is not  right, you lose 10 seconds");
-            clearInterval(downloadTimer);
-            timer.innerHTML = -10
-            timer = setInterval(myClock, 1000);
+            timeleft -= 10;
         }
-
+// Ends the quiz because user exhausted all questions
     currentIndex++;
     if (currentIndex === correctanswer.length) {
-        // tbd end the quiz , because exhausted all questions
         endquiz();
     } else {
         handleQuestion();
     }
 
 }
-// choiceEl.forEach((item) => {
-//     item.addEventListener('click', clickEvent)
-// });
 
 function handleQuestion() {
     currentQuestion.parentNode.classList.add("hide")
@@ -135,29 +103,15 @@ function handleQuestion() {
         item.addEventListener('click', clickEvent)
     });
 }
-
-
-
-
-
-
-
-//for (var i = 0; i < orderedListButtons1.length; i++) {
-//    orderedListButtons1[i].addEventListener("click", answer1)
-//}
-
-//}
-
-//question1.addEventListener("click", orderedListButton1)
-
-//function orderedListButton1() {
-   // orderedListButton1.classList.add("hide")
-    //question2.parentNode.classList.remove("hide")
-    //question2.parentNode.classList.add("show")
-//}
-
-//for (var i = 0; i < orderedListButtons1.length; i++) {
-   //orderedListButtons1[i].addEventListener()
-// }
+//function resetScore()
+{   
+    score=0;
+    document.getElementById("score").value=score;
+}
+function randomAdd()
+       {
+           correctanswer.querySelector([currentIndex]+1);
+            x.value=Math.floor((Math.random()+1));
+       }
 
 
