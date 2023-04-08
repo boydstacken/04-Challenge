@@ -41,6 +41,9 @@ let currentIndex = 0;
 
 
 startbutton.addEventListener("click", startgame)
+    setTimeout(downloadTimer,1000);
+
+
 
 function startgame() {
     startbutton.classList.add("hide")
@@ -48,7 +51,10 @@ function startgame() {
     question1.parentNode.classList.add("show")
     handleQuestion();
 }
-
+setTimeout(() => {   
+    startbutton.addEventListener("click", startgame)
+    console.log("this is the first message");
+      }, 5000);
 function endquiz() {
     // to be completed
 }
@@ -111,6 +117,7 @@ function handleQuestion() {
 
 var timeleft = 75;
 var downloadTimer = setInterval(function(){
+    setTimeout(downloadTimer,1000);  
   if(timeleft <= 0){
     clearInterval(downloadTimer);
     document.getElementById("timer").innerHTML = "Finished";
