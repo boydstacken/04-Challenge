@@ -51,7 +51,7 @@ function endquiz() {
 
 //events when user clicks button and alerts saying if their answer is right or wrong. Time is deducted by -10 seconds if they select the wrong answer
 clickEvent = (event) => {
-    console.log('some event content here...')
+    console.log('button clicked')
     let btn = event.target;
     console.log("the actual btn clicked = ", btn.textContent);
     if (correctanswer[currentIndex] === btn.textContent) {
@@ -103,15 +103,8 @@ function handleQuestion() {
         item.addEventListener('click', clickEvent)
     });
 }
-//function resetScore()
-{   
-    score=0;
-    document.getElementById("score").value=score;
+function checkAnswer(){
+    console.log(answer)
+    score = score + 5;
+    alert(score)
 }
-function randomAdd()
-       {
-           correctanswer.querySelector([currentIndex]+1);
-            x.value=Math.floor((Math.random()+1));
-       }
-
-
