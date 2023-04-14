@@ -16,6 +16,10 @@ var choiceEl = document.querySelectorAll('.Ordered-list-button-1');
 var timer;
 var ele = document.getElementById('timer')
 var score = 0;
+var scorepage = document.querySelector(".Score-Page")
+var highscorespage = document.querySelector(".Highscores-Page")
+var highscorespage = document.querySelector(".Highscores-Page-2")
+
 
 
 let currentQuestion = question1;
@@ -46,7 +50,7 @@ var downloadTimer = setInterval(function(){
 
 // when user completes quiz
 function endquiz() {
-
+    scorepage.textContent.add.("show")
 }
 
 //events when user clicks button and alerts saying if their answer is right or wrong. Time is deducted by -10 seconds if they select the wrong answer
@@ -56,6 +60,7 @@ clickEvent = (event) => {
     console.log("the actual btn clicked = ", btn.textContent);
     if (correctanswer[currentIndex] === btn.textContent) {
         alert("Great! You answered right");
+        score++;
     }
     else {
         // Penalizes user for wrong ansewr, docs 10 seconds off of timer
