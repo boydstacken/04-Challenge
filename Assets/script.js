@@ -49,8 +49,8 @@ var downloadTimer = setInterval(function(){
 }
 
 // when user completes quiz
-function endquiz() {
-    scorepage.textContent.add.("show")
+//function endquiz() {
+    //scorepage.textContent.add.("show")
 }
 
 //events when user clicks button and alerts saying if their answer is right or wrong. Time is deducted by -10 seconds if they select the wrong answer
