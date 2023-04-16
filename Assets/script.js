@@ -140,11 +140,11 @@ var questions = [
         answer: 'for loops',
     },
 ]
-//scorebutton.addEventListener("click", seescores)
+scorebutton.addEventListener("click", seescores)
 
-//function seescores() {
-    //var scorebutton = document.querySelector(".Score-Button")
-    //scorebutton.classList.add("hide")
-   // scorepage.classList.remove("show")
-    //score.classList.add("show")
-//}
+function seescores() {
+    var scorebutton = document.querySelector(".Score-Button")
+    scorebutton.classList.add("hide")
+    scorepage.classList.remove("show")
+    score.textContent.add("show")
+}
