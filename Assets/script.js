@@ -147,4 +147,4 @@ var questions = [
     //scorebutton.classList.add("hide")
    // scorepage.classList.remove("show")
     //score.classList.add("show")
-}
+//}
