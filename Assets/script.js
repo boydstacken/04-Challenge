@@ -184,14 +184,14 @@ submissionButton.addEventListener("click", function() {
   });
 
 //go back button execution
-    var goBackButton = document.querySelectorAll("goBack")
+    var goBackButton = document.querySelectorAll(".Go-Back-Button")
     for (var i=0; i < goBackButton.length; i++) {
         goBackButton[i].addEventListener("click",function() {
         showQuiz()
     })
 }
 //clear button execution
-var clearHighscoresButton = document.querySelector(".clearHighscores")
+var clearHighscoresButton = document.querySelector(".Clear-Highscores-Button")
 clearHighscoresButton.addEventListener("click",function() {
     var highscoresList = document.getElementById("highscoresList")
     while (highscoresList.firstChild) {
