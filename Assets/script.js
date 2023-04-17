@@ -189,14 +189,26 @@ submissionButton.addEventListener("click", function() {
         goBackButton[i].addEventListener("click",function() {
         showQuiz()
     })
+    function showQuiz() {
+        // hides score pages
+        document.querySelector(".Score-Page").style.display = "none"
+        document.querySelector(".Highscores-Page").style.display = "none"
+        document.querySelector(".Highscores-Page-2").style.display = "none"
+      
+        // Shows quiz page
+        document.querySelector(".Question-1").style.display = "block"
+      }
 }
 //clear button execution
-var clearHighscoresButton = document.querySelector(".Clear-Highscores-Button")
-clearHighscoresButton.addEventListener("click",function() {
-    var highscoresList = document.getElementById("highscoresList")
-    while (highscoresList.firstChild) {
-        highscoresList.removeChild(highscoresList.firstChild)
-    }
-    scores = []
-    localStorage.setItem("scores",JSON.stringify(scores))
-})
+var clearHighscoresButton = document.querySelector(".Clear-Highscores-Button");
+clearHighscoresButton.addEventListener("click", function() {
+  var highscoresList = document.getElementById("highscores-list");
+  while (highscoresList.firstChild) {
+    highscoresList.removeChild(highscoresList.firstChild);
+  }
+  localStorage.removeItem("score");
+  document.querySelector(".Score-Page").style.display = "none"
+  document.querySelector(".Highscores-Page").style.display = "none"
+  document.querySelector(".Highscores-Page-2").style.display = "none"
+});
+
