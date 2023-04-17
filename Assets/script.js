@@ -25,6 +25,35 @@ var mainpage = document.querySelector(".container")
 let currentQuestion = question1;
 let currentIndex = 0;
 
+//array for each question to read and cycle through the information to help continue progession throughout the application.
+var questions = [
+    {
+      title: 'Commonly used data types DO NOT include:',
+      choices: ['strings', 'booleans', 'alerts', 'numbers'],
+      answer: 'alerts',
+    },
+    {
+      title: 'The condition in an if / else statement is enclosed within ____.',
+      choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
+      answer: 'parentheses',
+    },
+    {
+        title: 'Arrays in JavaScript can be used to store _____.',
+        choices: ['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
+        answer: 'all of the above',
+    },
+    {
+        title: 'String values must be enclosed within _____ when being assigned to variables.',
+        choices: ['commas', 'curly brackets', 'quotes', 'paranthesis'],
+        answer: 'curly brackets',
+    },
+    {
+        title: 'A very useful tool used during development and debugging for printing content to the debugger is:',
+        choices: ['Javascript', 'terminal/bash', 'for loops', 'console log'],
+        answer: 'for loops',
+    },
+]
+
 //Iniitalizing the start of quiz with event after user clicks first button
 startbutton.addEventListener("click", startgame)
 
@@ -33,12 +62,15 @@ var timeleft = 75;
 var scoreEl = document.querySelector('.score');
 
 function startgame() {
+    startTimer()
     startbutton.classList.add("hide")
     mainpage.parentNode.classList.add("hide")
     question1.parentNode.classList.remove("hide")
     question1.parentNode.classList.add("show")
     handleQuestion();
-var downloadTimer = setInterval(function(){
+}
+function startTimer(){
+    var downloadTimer = setInterval(function(){
         setTimeout(downloadTimer,1000);  
       if(timeleft <= 0){
         clearInterval(downloadTimer);
@@ -48,11 +80,11 @@ var downloadTimer = setInterval(function(){
       }
       timeleft -= 1;
     }, 1000);
-        handleQuestion();
 }
 
+
 //events when user clicks button and alerts saying if their answer is right or wrong. Time is deducted by -10 seconds if they select the wrong answer
-clickEvent = (event) => {
+var clickEvent = (event) => {
     console.log('button clicked')
     let btn = event.target;
     console.log("the actual btn clicked = ", btn.textContent);
@@ -83,6 +115,7 @@ function endquiz(){
 function handleQuestion() {
     currentQuestion.parentNode.classList.add("hide")
     choiceEl = document.querySelectorAll(`.Ordered-list-button-${currentIndex + 1}`);
+        console.log(choiceEl)
     switch (currentIndex + 1) {
         case 1:
             currentQuestion = question1;
@@ -103,41 +136,16 @@ function handleQuestion() {
     }
     currentQuestion.parentNode.classList.remove("hide")
     currentQuestion.parentNode.classList.add("show")
+        console.log(currentQuestion)
     for (var i = 0; i < currentQuestion.length; i++) {
-        correctanswer[i].addEventListener("click", answer1)
+        console.log(correctanswer[i])
+        correctanswer[i].addEventListener("click", questions)
     }
     choiceEl.forEach((item) => {
         item.addEventListener('click', clickEvent)
     });
 }
-//array for each question to read and cycle through the information to help continue progession throughout the application.
-var questions = [
-    {
-      title: 'Commonly used data types DO NOT include:',
-      choices: ['strings', 'booleans', 'alerts', 'numbers'],
-      answer: 'alerts',
-    },
-    {
-      title: 'The condition in an if / else statement is enclosed within ____.',
-      choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
-      answer: 'parentheses',
-    },
-    {
-        title: 'Arrays in JavaScript can be used to store _____.',
-        choices: ['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
-        answer: 'all of the above',
-    },
-    {
-        title: 'String values must be enclosed within _____ when being assigned to variables.',
-        choices: ['commas', 'curly brackets', 'quotes', 'paranthesis'],
-        answer: 'curly brackets',
-    },
-    {
-        title: 'A very useful tool used during development and debugging for printing content to the debugger is:',
-        choices: ['Javascript', 'terminal/bash', 'for loops', 'console log'],
-        answer: 'for loops',
-    },
-]
+
 
 var scorebutton = document.querySelector(".Score-Button")
 var submissionButton = document.querySelector(".Submission-Button");
@@ -191,4 +199,4 @@ clearHighscoresButton.addEventListener("click",function() {
     localStorage.setItem("scores",JSON,(scores))
 })
 var clearHighscoresButton = document.getElementById("clearHighscores")
-clearHighscoresButton.addEventListener("click," , clearHighscoresButton)
+//clearHighscoresButton.addEventListener("click," , clearHighscoresButton)
