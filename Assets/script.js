@@ -183,6 +183,12 @@ submissionButton.addEventListener("click", function() {
 }
 //clear button execution
 clearHighscoresButton.addEventListener("click",function() {
-    highscorespage.parentNode.classList.add('hide')
-    showHighscores()
+    var highscoresList = document.getElementById("highscoresList")
+    while (highscoresList.firstChild) {
+        highscoresList.removeChild(highscoresList.firstChild)
+    }
+    scores = []
+    localStorage.setItem("scores",JSON,(scores))
 })
+var clearHighscoresButton = document.getElementById("clearHighscores")
+clearHighscoresButton.addEventListener("click," , clearHighscoresButton)
