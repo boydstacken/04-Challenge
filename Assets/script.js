@@ -7,11 +7,11 @@ var question3 = document.querySelector(".Question-3")
 var question4 = document.querySelector(".Question-4")
 var question5 = document.querySelector(".Question-5")
 var answer1 = ["strings", "booleans", "alerts", "numbers"]
-var answer2 = ["quotes", "curly brackets", "parenthesis", "square brackets"]
+var answer2 = ["quotes", "curly brackets", "parentheses", "square brackets"]
 var answer3 = ["numbers and strings", "other arrays", "booleans", "all of the above"]
-var answer4 = ["commas", "curly brackets", "quotes", "paranthesis"]
+var answer4 = ["commas", "curly brackets", "quotes", "parantheses"]
 var answer5 = ["JavaScript", "terminal/bash", "for loops"]
-var correctanswer = ["booleans", "paranthesis", "all of the above", "curly brackets", "for loops"]
+var correctanswer = ["booleans", "parantheses", "all of the above", "curly brackets", "for loops"]
 var choiceEl = document.querySelectorAll('.Ordered-list-button-1');
 var timer;
 var ele = document.getElementById('timer')
@@ -50,11 +50,6 @@ var downloadTimer = setInterval(function(){
     }, 1000);
         handleQuestion();
 }
-
-// when user completes quiz
-//function endquiz() {
-    //scorepage.textContent.add.("show")
-//}
 
 //events when user clicks button and alerts saying if their answer is right or wrong. Time is deducted by -10 seconds if they select the wrong answer
 clickEvent = (event) => {
@@ -115,7 +110,7 @@ function handleQuestion() {
         item.addEventListener('click', clickEvent)
     });
 }
-
+//array for each question to read and cycle through the information to help continue progession throughout the application.
 var questions = [
     {
       title: 'Commonly used data types DO NOT include:',
@@ -153,23 +148,21 @@ var initials = document.querySelector(".Initial-Entry-Box")
 var highscoresList = document.querySelector(".Highscores-Page")
 var finalScore = document.querySelector(".finalscore")
 
+//after quiz is cmoplete user can click the button to see their scores
 scorebutton.addEventListener("click", seescores)
 
 function seescores() {
     var scorebutton = document.querySelector(".Score-Button")
     var scorepage = document.querySelector(".Score-Page")
-    var score = document.querySelector(".score")
     var mainpage = document.querySelector(".container")
     question5removal.parentNode.classList.add("hide")
     scorebutton.classList.remove("hide")
     scorepage.parentNode.classList.remove("hide")
-    score.classList.remove("hide")
-    score.textContent = finalScore + score
 
-    //var finalScore= score + 5;
-    //score.textContent = "Your final score is: " + finalScore;
+    finalScore.textContent = score
+
 }
-
+//user's initial submission after receiving their score, will get them to highscores page
 submissionButton.addEventListener("click", function() {
     var initials = document.querySelector("input[type=text]").value
     console.log("Initials were entered: " + initials)
@@ -188,7 +181,8 @@ submissionButton.addEventListener("click", function() {
         showQuiz()
     })
 }
-
-function clearHighscores() {
-
-}
+//clear button execution
+clearHighscoresButton.addEventListener("click",function() {
+    highscorespage.parentNode.classList.add('hide')
+    showHighscores()
+})

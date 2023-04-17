@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/style.css"/>
+    <!--User has 75 seconds total to complete the quiz and time will be deducted by 10 seconds for wrong answer (refer to JS starting at line 70)-->
     <div id="timeclock">
         <div id="timer">75</div>
     </div>
     <title>Coding Quiz Challenge</title>
 </head>
 <body>
+    <!--Start of quiz and introduction-->
     <header>
             <div class="container">
                 <h1>Coding Quiz Challenge</h1>
@@ -20,7 +22,9 @@
                         <button class ="Start-Quiz">Start Quiz</button>
             </div>
     </header>
+    <!-- 5 Quiz question starting here-->
     <main class="page-wrapper">
+        <!--"Hide" classes allow for us to manipulate content to either not allow or allow user to see specific content based on their interactions throughout the application. More broken down in JS"-->
         <section class="hide">
             <div class= "Question-1"></div>
                 <div class= "Question-1-choices"><h1>Commonly used data types DO NOT include</h1></div>
@@ -71,8 +75,9 @@
                         <li><button onclick="clickEvent" class="Ordered-list-button-5">for loops</button></li>
                         <li><button onclick="clickEvent" class="Ordered-list-button-5">console log</button></li>
                     </ol>
+                <!--End of quiz. Score pages begin-->
                     <button class = "Score-Button">See Scores</button>
-        </section>
+                </section>
         <section class="hide">
                 <div class="Score-Page"></div>
                 <div class="Score-Page-Title"><h1>All Done!</h1></div>
@@ -86,6 +91,7 @@
                 <ol id="highscores-list">
 
                 </ol>
+                <!--Button options to either allow user to go back or clear their current score-->
               <button class = "Go-Back-Button">Go Back</button><button class="Clear-Highscores-Button">Clear Highscores</button></div>  
         </section>
         <section class="hide">
