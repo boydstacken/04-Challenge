@@ -26,7 +26,7 @@
                 <div class= "Question-1-choices"><h1>Commonly used data types DO NOT include</h1></div>
                     <ol class="answer-choices-1">
                         <li><button onclick="clickEvent" class ="Ordered-list-button-1">strings</button></li>
-                        <li><button onclick="checkAnswer('correct')" class ="Ordered-list-button-1">booleans</button></li>
+                        <li><button onclick="clickEvent" class ="Ordered-list-button-1">booleans</button></li>
                         <li><button onclick="clickEvent" class ="Ordered-list-button-1">alerts</button></li>
                         <li><button onclick="clickEvent" class ="Ordered-list-button-1">numbers</button></li>
                     </ol>
@@ -37,7 +37,7 @@
                     <ol class="answer-choices-2">
                         <li><button onclick="clickEvent" class ="Ordered-list-button-2">quotes</button></li>
                         <li><button onclick="clickEvent" class ="Ordered-list-button-2">curly brackets</button></li>
-                        <li><button onclick="checkAnswer('correct')" class ="Ordered-list-button-2">parenthesis</button></li>
+                        <li><button onclick="clickEvent" class ="Ordered-list-button-2">parentheses</button></li>
                         <li><button onclick="clickEvent" class ="Ordered-list-button-2">square brackets</button></li>
                     </ol>
         </section>
@@ -46,51 +46,57 @@
             <div class="Question-3"></div>
                 <div class="Question-3-choices"><h1>Arrays in JavaScript can be used to store _____.</h1></div>
                     <ol class="answer-choices-3">
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-3">numbers and strings</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-3">numbers and strings</button></li>
                         <li><button onclick="clickEvent" class="Ordered-list-button-3">other arrays</button></li>
                         <li><button onclick="clickEvent" class="Ordered-list-button-3">booleans</button></li>
-                        <li><button onclick="checkAnswer('correct')" class="Ordered-list-button-3">all of the above</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-3">all of the above</button></li>
                     </ol>
         </section>
         <section class="hide">
             <div class="Question-4"></div>
                 <div class="Question-4-choices"><h1>String values must be enclosed within _____ when being assigned to variables.</h1></div>
                     <ol class="answer-choices-4">
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-4">commas</button></li>
-                        <li><button onclick="checkAnswer('correct')" class="Ordered-list-button-4">curly brackets</button></li>
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-4">quotes</button></li>
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-4">paranthesis</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-4">commas</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-4">curly brackets</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-4">quotes</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-4">parantheses</button></li>
                     </ol>
         </section>
-        <section class="show">
+        <section class="hide">
             <div class="Question-5"></div>
                 <div class="Question-5-choices"><h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1></div>
                     <ol class="answer-choices-5">
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-5">JavaScript</button></li>
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-5">terminal/bash</button></li>
-                        <li><button onclick="checkAnswer('correct')" class="Ordered-list-button-5">for loops</button></li>
-                        <li><button onclick= "clickEvent" class="Ordered-list-button-5">console log</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-5">JavaScript</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-5">terminal/bash</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-5">for loops</button></li>
+                        <li><button onclick="clickEvent" class="Ordered-list-button-5">console log</button></li>
                     </ol>
-        <button class = "Score-Button">See Scores</button>
+                    <button class = "Score-Button">See Scores</button>
         </section>
         <section class="hide">
-            <div class="Score-Page"></div>
+                <div class="Score-Page"></div>
                 <div class="Score-Page-Title"><h1>All Done!</h1></div>
-                    <p> Your final score is: <span class="score">0</span></p>
-                <div class="Initial-Entry-Box">Enter Initials:<input type="text"><button class = "Submission-Button">Submit</button></div>  
+                    <p>Your final score is:<span class="finalscore"></span></p>
+                <div class="Initial-Entry-Box">Enter Initials:<input type="text" id="=initials-input"><button class = "Submission-Button">Submit</button></div>  
         </section>
         <section class="hide">
             <div class="Highscores-Page"></div>
-                <div class="Highscores-Page"><h1>Highscores</h1></div>
-                    <ol>
-                        <li>highscore here</li>
-                    </ol>
-              <button class = "Go-Back-Button">Go Baclear-Highscores-Button">Clear Highscores</button></div>  
+                <h1>Highscores</h1>
+                <!--this list of highscores will auto update with js-->
+                <ol id="highscores-list">
+
+                </ol>
+              <button class = "Go-Back-Button">Go Back</button><button class="Clear-Highscores-Button">Clear Highscores</button></div>  
         </section>
         <section class="hide">
             <div class="Highscores-Page-2"></div>
-                <div class="Highscores-Page-2-Description"><h1>Highscores</h1></div>
-                <button class="Go-Back-Button">Go Back</button><button class = "Clear-Highscores-Button">Clear Highscores</button></div>  
+                <div class="Highscores-Page-2-Description"></div>
+                <h1>Highscores</h1>
+                <!--this list of highscores will also update with js-->
+                <ol id="highscores-list-2">
+
+                </ol>
+                <button class="Go-Back-Button">Go Back</button><button class="Clear-Highscores-Button">Clear Highscores</button></div>  
         </section>
     </main>
 

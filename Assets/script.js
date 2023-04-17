@@ -18,8 +18,8 @@ var ele = document.getElementById('timer')
 var score = 0;
 var scorepage = document.querySelector(".Score-Page")
 var highscorespage = document.querySelector(".Highscores-Page")
-var highscorespage = document.querySelector(".Highscores-Page-2")
-
+var highscorespage2 = document.querySelector(".Highscores-Page-2")
+var mainpage = document.querySelector(".container")
 
 
 let currentQuestion = question1;
@@ -30,8 +30,11 @@ startbutton.addEventListener("click", startgame)
 
 //Once user starts quiz the countdown time starts to decrease and questions, answers show and dissapear as the user starts making their way through the quiz
 var timeleft = 75;
+var scoreEl = document.querySelector('.score');
+
 function startgame() {
     startbutton.classList.add("hide")
+    mainpage.parentNode.classList.add("hide")
     question1.parentNode.classList.remove("hide")
     question1.parentNode.classList.add("show")
     handleQuestion();
@@ -59,12 +62,15 @@ clickEvent = (event) => {
     let btn = event.target;
     console.log("the actual btn clicked = ", btn.textContent);
     if (correctanswer[currentIndex] === btn.textContent) {
-        score++;
+        score = score + 5;
+        console.log ("total score is " + score)
+        alert("Correct! Your score is " + score)
     }
     else {
         // Penalizes user for wrong ansewr, docs 10 seconds off of timer
         (correctanswer[currentIndex] !== btn.textContent) 
             alert(" Oops, that  is not  right, you lose 10 seconds");
+            console.log ("total score is still " + score , "and 10 seconds were deducted")
             timeleft -= 10;
         }
 //Ends the quiz because user exhausted all questions
@@ -109,11 +115,7 @@ function handleQuestion() {
         item.addEventListener('click', clickEvent)
     });
 }
-function checkAnswer(){
-    console.log('correct')
-    score = score + 5;
-    alert ("Correct! Your score is " + score)
-}
+
 var questions = [
     {
       title: 'Commonly used data types DO NOT include:',
@@ -146,52 +148,47 @@ var scorebutton = document.querySelector(".Score-Button")
 var submissionButton = document.querySelector(".Submission-Button");
 var goBackButton = document.querySelector(".Go-Back-Button");
 var clearHighscoresButton = document.querySelector(".Clear-Highscores-Button");
-var question5 = document.querySelector(".Question-5")
+var question5removal = document.querySelector(".Question-5")
+var initials = document.querySelector(".Initial-Entry-Box")
+var highscoresList = document.querySelector(".Highscores-Page")
+var finalScore = document.querySelector(".finalscore")
 
+scorebutton.addEventListener("click", seescores)
 
-// //scorebutton.addEventListener("click", seescores)
-//     console.log('score button clicked')
+function seescores() {
+    var scorebutton = document.querySelector(".Score-Button")
+    var scorepage = document.querySelector(".Score-Page")
+    var score = document.querySelector(".score")
+    var mainpage = document.querySelector(".container")
+    question5removal.parentNode.classList.add("hide")
+    scorebutton.classList.remove("hide")
+    scorepage.parentNode.classList.remove("hide")
+    score.classList.remove("hide")
+    score.textContent = finalScore + score
 
-// question5.addEventListener("click", removeQuestion5)
-//     console.log('question 5 removal clicked')
+    //var finalScore= score + 5;
+    //score.textContent = "Your final score is: " + finalScore;
+}
 
-// submissionButton.addEventListener("click",submitScore)
-//     console.log('submission button clicked')
+submissionButton.addEventListener("click", function() {
+    var initials = document.querySelector("input[type=text]").value
+    console.log("Initials were entered: " + initials)
+    var newHighscore = document.createElement('li')
+    newHighscore.textContent = initials + ': ' + score
+    highscoresList.appendChild(newHighscore)
+    var scorepage = document.querySelector('.Score-Page')
+    var highscorespage = document.querySelector('.Highscores-Page')
+    scorepage.parentNode.classList.add('hide')
+    highscorespage.parentNode.classList.remove('hide')
+  });
 
-// goBackButton.addEventListener("click",goBack)
-//     console.log('go back button clicked')
+//go back button execution
+    for (var i=0; i < goBackButton.length; i++) {
+        goBackButton[i].addEventListener(click,function() {
+        showQuiz()
+    })
+}
 
-// clearHighscoresButton.addEventListener("click", clearHighscores)
-//     console.log('clear scores button clicked')
+function clearHighscores() {
 
-// //shows the highscore page
-// submissionButton.addEventListener("click",function() {
-//     var initials = document.querySelector(input[type=text]).value
-//     console.log("Initials were entered: $(initials)");
-// })
-
-//a function to show the users score on page
-// function seescores() {
-//     var scorebutton = document.querySelector(".Score-Button")
-//     var scorepage = document.querySelector(".Score-Page")
-//     var score = document.querySelector(".score")
-//     question5.classList.add("hide")
-//     scorebutton.classList.add("hide")
-//     scorepage.classList.remove("hide")
-//     score.classList.remove("hide")
-// }
-
-//function submitScore() {
-    //var userInitials = document.querySelector('input[type="text"]').value
-//}
-
-//function goBack() {
-    //console.log()
-//}
-//function clearHighscores() {
-    //console.log()
-//}
-
-//function removeQuestion5 () {
-
-//}
+}
