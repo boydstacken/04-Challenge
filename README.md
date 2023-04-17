@@ -2,7 +2,7 @@
 # Deployed Site is: https://boydstacken.github.io/04-Challenge/
 
 Screenshot of application:
-
+![image](https://user-images.githubusercontent.com/124229670/232610952-96d26f9a-9df7-4aff-ac8a-1f93d164dbc9.png)
 
 ## Your Task
 
