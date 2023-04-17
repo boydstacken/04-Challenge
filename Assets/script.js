@@ -9,9 +9,9 @@ var question5 = document.querySelector(".Question-5")
 var answer1 = ["strings", "booleans", "alerts", "numbers"]
 var answer2 = ["quotes", "curly brackets", "parentheses", "square brackets"]
 var answer3 = ["numbers and strings", "other arrays", "booleans", "all of the above"]
-var answer4 = ["commas", "curly brackets", "quotes", "parantheses"]
+var answer4 = ["commas", "curly brackets", "quotes", "parentheses"]
 var answer5 = ["JavaScript", "terminal/bash", "for loops"]
-var correctanswer = ["booleans", "parantheses", "all of the above", "curly brackets", "for loops"]
+var correctanswer = ["booleans", "parentheses", "all of the above", "curly brackets", "for loops"]
 var choiceEl = document.querySelectorAll('.Ordered-list-button-1');
 var timer;
 var ele = document.getElementById('timer')
@@ -87,8 +87,8 @@ function startTimer(){
 var clickEvent = (event) => {
     console.log('button clicked')
     let btn = event.target;
-    console.log("the actual btn clicked = ", btn.textContent);
-    if (correctanswer[currentIndex] === btn.textContent) {
+    console.log("the actual btn clicked = ", btn.textContent,correctanswer[currentIndex]);
+    if (correctanswer[currentIndex] == btn.textContent) {
         score = score + 5;
         console.log ("total score is " + score)
         alert("Correct! Your score is " + score)
@@ -184,19 +184,19 @@ submissionButton.addEventListener("click", function() {
   });
 
 //go back button execution
+    var goBackButton = document.querySelectorAll("goBack")
     for (var i=0; i < goBackButton.length; i++) {
-        goBackButton[i].addEventListener(click,function() {
+        goBackButton[i].addEventListener("click",function() {
         showQuiz()
     })
 }
 //clear button execution
+var clearHighscoresButton = document.querySelector(".clearHighscores")
 clearHighscoresButton.addEventListener("click",function() {
     var highscoresList = document.getElementById("highscoresList")
     while (highscoresList.firstChild) {
         highscoresList.removeChild(highscoresList.firstChild)
     }
     scores = []
-    localStorage.setItem("scores",JSON,(scores))
+    localStorage.setItem("scores",JSON.stringify(scores))
 })
-var clearHighscoresButton = document.getElementById("clearHighscores")
-//clearHighscoresButton.addEventListener("click," , clearHighscoresButton)
